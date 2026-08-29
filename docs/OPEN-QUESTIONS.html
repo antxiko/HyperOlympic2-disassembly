@@ -1,0 +1,103 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What is still not settled, listed one by one — Hyper Olympic 2 (Konami, 1984)</title>
+<style>
+:root{--tinta:#cfd0d4;--suave:#83868f;--fondo:#000;--panel:#0c0e13;--linea:#23262e;
+  --rojo:#ff897d;--cyan:#65dbef;--verde:#3eb849;--oro:#ded087}
+@media (prefers-color-scheme:light){:root{--tinta:#191a1e;--suave:#5a5d66;--fondo:#e9e7e1;
+  --panel:#f7f6f2;--linea:#d0cdc5;--rojo:#b23f34;--cyan:#1c6b7c;--verde:#2b7734;--oro:#8a7420}}
+:root[data-theme="dark"]{--tinta:#cfd0d4;--suave:#83868f;--fondo:#000;--panel:#0c0e13;
+  --linea:#23262e;--rojo:#ff897d;--cyan:#65dbef;--verde:#3eb849;--oro:#ded087}
+:root[data-theme="light"]{--tinta:#191a1e;--suave:#5a5d66;--fondo:#e9e7e1;--panel:#f7f6f2;
+  --linea:#d0cdc5;--rojo:#b23f34;--cyan:#1c6b7c;--verde:#2b7734;--oro:#8a7420}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);padding:0 1.25rem 6rem;
+  font:15px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.w{max-width:1120px;margin:0 auto}
+.n{max-width:68ch}
+h1,h2,h3,h4{font-weight:400;text-wrap:balance}
+a{color:var(--cyan)}
+img{image-rendering:pixelated;max-width:100%;height:auto;display:block}
+header.top{display:flex;flex-direction:column;align-items:center;gap:1.5rem;
+  padding:4rem 0 2rem;text-align:center}
+header.top img{width:min(100%,642px)}
+.claim{max-width:60ch;color:var(--suave);font-size:1.05rem}
+.claim b{color:var(--tinta);font-weight:400}
+.ficha{display:flex;flex-wrap:wrap;justify-content:center;gap:0 1.5rem;width:100%;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);
+  border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:.85rem 0}
+.ficha b{color:var(--rojo);font-weight:400}
+nav{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center;padding:1.25rem 0;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+nav a{color:var(--suave);text-decoration:none;border-bottom:1px solid transparent}
+nav a:hover,nav a:focus{color:var(--tinta);border-bottom-color:var(--rojo)}
+nav.docs{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);
+  margin-bottom:1rem}
+section{margin-top:4.5rem;scroll-margin-top:1rem}
+section>h2{font-size:1rem;letter-spacing:.1em;text-transform:uppercase;
+  border-left:3px solid var(--rojo);padding-left:.9rem;margin:0 0 1.5rem}
+.cifras{display:grid;gap:1px;background:var(--linea);border:1px solid var(--linea);
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.cifra{background:var(--panel);padding:1.1rem}
+.cifra b{display:block;font-size:1.7rem;color:var(--oro);font-weight:400;
+  font-variant-numeric:tabular-nums;line-height:1.2}
+.cifra span{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--suave)}
+.hall{border-top:1px solid var(--linea);padding-top:1.75rem;margin-top:2.5rem}
+.hall:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.hall h3{margin:0 0 .75rem;font-size:1.15rem;color:var(--rojo)}
+.hall h4{color:var(--oro);margin:1.5rem 0 .5rem;font-size:.95rem}
+.hall p{margin:0 0 1rem}
+pre.asm{background:var(--panel);border-left:2px solid var(--verde);margin:1.25rem 0;
+  padding:1rem 1.1rem;overflow-x:auto;font-size:13px;line-height:1.6;color:var(--tinta)}
+.par{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:820px){.par{grid-template-columns:1fr 1fr}}
+.par figure{margin:0}
+table{border-collapse:collapse;width:100%;margin:1.25rem 0;font-size:13px;display:block;
+  overflow-x:auto}
+th,td{text-align:left;padding:.5rem .75rem;border-bottom:1px solid var(--linea)}
+th{color:var(--suave);font-weight:400;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;color:var(--oro)}
+.nivel{margin-top:2rem}
+.nivel h3{margin:0 0 .9rem;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase}
+.nivel em{color:var(--cyan);font-style:normal}
+.sep{color:var(--suave);margin:0 .6rem}
+.rejilla{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.rejilla figure{margin:0;background:var(--panel);box-shadow:0 0 0 1px var(--linea)}
+.rejilla figcaption{display:flex;justify-content:space-between;padding:.45rem .65rem;
+  font-size:11px;color:var(--suave);border-top:1px solid var(--linea)}
+.dir{font-variant-numeric:tabular-nums;color:var(--verde)}
+footer{margin-top:5rem;padding-top:1.5rem;border-top:1px solid var(--linea);
+  color:var(--suave);font-size:12px}
+
+/* Aviso de trabajo en curso: tiene que verse antes que las cifras, porque un
+   100% mal leido hace mas dano que no ponerlo. */
+.aviso{background:#3a2a10;border-left:3px solid var(--oro);margin:1.5rem auto;
+  padding:1rem 1.2rem;max-width:900px;border-radius:4px}
+.aviso p{margin:0;color:var(--tinta);font-size:15px;line-height:1.65}
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;margin:1.5rem 0}
+.galeria figure{margin:0}
+.galeria img{width:100%;height:auto;image-rendering:pixelated;
+  border:1px solid var(--linea);border-radius:3px}
+.galeria figcaption{color:var(--suave);font-size:13px;margin-top:.5rem}
+audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
+</style>
+<div class="w"><nav class="top"><a href="index.html">Home</a><a href="GETTING-STARTED.html">Start</a><a href="THE-GAME.html">The game</a><a href="THE-CARTRIDGE.html">The cartridge</a><a href="THE-CODE.html">The code</a><a href="FINDINGS.html">Findings</a><a href="IN-THE-EMULATOR.html">In the emulator</a><a href="OPEN-QUESTIONS.html" style=color:var(--tinta)>Open questions</a><a href="COMPARISON-TRACK-AND-FIELD.html">vs Track &amp; Field</a><a href="es/PREGUNTAS-ABIERTAS.html" style="margin-left:auto;color:var(--oro)">Castellano</a></nav>
+<h1 id="what-is-still-not-settled-listed-one-by-one">What is still not settled, listed one by one</h1>
+<p>The budget is at 100 %: the 16,384 bytes are split between traced code (9,872) and named data ranges (6,512), and <code>make sanity</code> checks it. What follows is not unassigned bytes but things that are explained with less certainty than I would like.</p>
+<h2 id="1-twelve-dead-bytes-at-0x4e64">1. Twelve dead bytes at 0x4E64</h2>
+<p>The same ones as in the sibling cartridge and in the same posture, right next to the eight VDP registers: <code>00 70 38 70 / 00 A0 38 70 / 00 F0 38 F0</code>. Nobody reads them.</p>
+<h2 id="2-the-annotations-come-ported-and-16-6-do-not">2. The annotations come ported, and 16.6 % do not</h2>
+<p>Of Hyper Olympic 1&#x27;s 5,032 instructions, 4,195 turn up here and bring their comments with them (<code>tools/porta_notas.py</code> lines both ROMs up and moves the Ls, the Cs and the Bs). The 1,519 bytes of code that do NOT come from the sibling were read and commented by hand. Even so, a ported comment says what the instruction did IN THE OTHER CARTRIDGE; where the meaning changes —the event names above all— it was corrected one by one, but this is the place where something could have slipped through.</p>
+<p>Two guards watch it, and both caught something real: <code>tools/repasa_el_porte.py</code> found nine cited addresses that do not exist here and a block heading that still talked about the hammer, and <code>tools/cifras_portadas.py</code> found the two comments at 0x4389 that said &quot;32 sprites&quot; when here they are 26.</p>
+<h2 id="3-the-data-blocks-were-not-ported">3. The data blocks were NOT ported</h2>
+<p>The D ranges and the F widths were worked out here again by walking the scripts, the melodies, the poses and the actor records with the same tools. Not one comes copied from the sibling.</p>
+<h2 id="4-the-large-letter-labels-go-by-address-not-by-name">4. The large-letter labels go by address, not by name</h2>
+<p>The 31 labels from 0x632F to 0x64B0 are delimited by the walk over the scripts, but only four have a name of their own: the four events&#x27;. The rest are published as <code>rotulo_XXXX</code>. Naming them would mean drawing them.</p>
+<h2 id="5-five-small-gaps-in-the-object-s-patterns">5. Five small gaps in the object&#x27;s patterns</h2>
+<p>Walking 0x789E leaves loose four groups of four bytes (0x78AE, 0x78C0, 0x78D6, 0x78E6) and one of twenty (0x78FC). ASSUMPTION: they are the attribute rows that follow each pattern, because 0x690A writes two sprites per pattern and the numbers add up. They fall inside the <code>patrones_del_objeto</code> range and that is why the budget balances, but they have not been checked one by one.</p>
+<h2 id="6-four-strips-of-melody-nothing-reaches">6. Four strips of melody nothing reaches</h2>
+<p>Walking the table at 0x6E64 from the seventeen sounds the code asks for with an immediate value leaves four stretches unvisited: 0x6EE5-0x6EF6 (entry 10 of the table), 0x6F3E-0x6F53 (13), 0x6F6B-0x6F75 (21) and 0x710E-0x7116, which no entry points at. Their bytes ARE inside the <code>melodias</code> range, so the budget balances. The seventeen sounds are ALL the ones the cartridge asks for: the two calls that do not carry the number right in front were resolved by hand and come out as 0x99 and 0x02, which were already counted. So nothing asks for those three strips. ASSUMPTION: they are sounds that went unused. The fourth stretch, 0x710E-0x7116, is the tail of the strip next to it, which the walk cuts at the 0xFF.</p>
+<h2 id="7-exactly-what-each-bit-of-0xe201-does">7. Exactly what each bit of 0xE201 does</h2>
+<p>Bits 0, 6 and 7 of the high jump are clear from the code that reads them. The two lower ones are used as a phase count and are commented where they are used, but without a single name.</p>
+<footer><p><em>Hyper Olympic 2</em> was published by Konami for the MSX; its catalogue number is RC-711 and it is 16 KB. All rights in the game remain with their holders. This is preservation, study and documentation work, and the cartridge image is not distributed.</p></footer></div>

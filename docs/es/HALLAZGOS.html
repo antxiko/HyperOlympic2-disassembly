@@ -1,0 +1,139 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hyper Olympic 2 (Konami, RC-711) - lo que dice el binario — Hyper Olympic 2 (Konami, 1984)</title>
+<style>
+:root{--tinta:#cfd0d4;--suave:#83868f;--fondo:#000;--panel:#0c0e13;--linea:#23262e;
+  --rojo:#ff897d;--cyan:#65dbef;--verde:#3eb849;--oro:#ded087}
+@media (prefers-color-scheme:light){:root{--tinta:#191a1e;--suave:#5a5d66;--fondo:#e9e7e1;
+  --panel:#f7f6f2;--linea:#d0cdc5;--rojo:#b23f34;--cyan:#1c6b7c;--verde:#2b7734;--oro:#8a7420}}
+:root[data-theme="dark"]{--tinta:#cfd0d4;--suave:#83868f;--fondo:#000;--panel:#0c0e13;
+  --linea:#23262e;--rojo:#ff897d;--cyan:#65dbef;--verde:#3eb849;--oro:#ded087}
+:root[data-theme="light"]{--tinta:#191a1e;--suave:#5a5d66;--fondo:#e9e7e1;--panel:#f7f6f2;
+  --linea:#d0cdc5;--rojo:#b23f34;--cyan:#1c6b7c;--verde:#2b7734;--oro:#8a7420}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);padding:0 1.25rem 6rem;
+  font:15px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.w{max-width:1120px;margin:0 auto}
+.n{max-width:68ch}
+h1,h2,h3,h4{font-weight:400;text-wrap:balance}
+a{color:var(--cyan)}
+img{image-rendering:pixelated;max-width:100%;height:auto;display:block}
+header.top{display:flex;flex-direction:column;align-items:center;gap:1.5rem;
+  padding:4rem 0 2rem;text-align:center}
+header.top img{width:min(100%,642px)}
+.claim{max-width:60ch;color:var(--suave);font-size:1.05rem}
+.claim b{color:var(--tinta);font-weight:400}
+.ficha{display:flex;flex-wrap:wrap;justify-content:center;gap:0 1.5rem;width:100%;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);
+  border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:.85rem 0}
+.ficha b{color:var(--rojo);font-weight:400}
+nav{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center;padding:1.25rem 0;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+nav a{color:var(--suave);text-decoration:none;border-bottom:1px solid transparent}
+nav a:hover,nav a:focus{color:var(--tinta);border-bottom-color:var(--rojo)}
+nav.docs{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);
+  margin-bottom:1rem}
+section{margin-top:4.5rem;scroll-margin-top:1rem}
+section>h2{font-size:1rem;letter-spacing:.1em;text-transform:uppercase;
+  border-left:3px solid var(--rojo);padding-left:.9rem;margin:0 0 1.5rem}
+.cifras{display:grid;gap:1px;background:var(--linea);border:1px solid var(--linea);
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.cifra{background:var(--panel);padding:1.1rem}
+.cifra b{display:block;font-size:1.7rem;color:var(--oro);font-weight:400;
+  font-variant-numeric:tabular-nums;line-height:1.2}
+.cifra span{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--suave)}
+.hall{border-top:1px solid var(--linea);padding-top:1.75rem;margin-top:2.5rem}
+.hall:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.hall h3{margin:0 0 .75rem;font-size:1.15rem;color:var(--rojo)}
+.hall h4{color:var(--oro);margin:1.5rem 0 .5rem;font-size:.95rem}
+.hall p{margin:0 0 1rem}
+pre.asm{background:var(--panel);border-left:2px solid var(--verde);margin:1.25rem 0;
+  padding:1rem 1.1rem;overflow-x:auto;font-size:13px;line-height:1.6;color:var(--tinta)}
+.par{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:820px){.par{grid-template-columns:1fr 1fr}}
+.par figure{margin:0}
+table{border-collapse:collapse;width:100%;margin:1.25rem 0;font-size:13px;display:block;
+  overflow-x:auto}
+th,td{text-align:left;padding:.5rem .75rem;border-bottom:1px solid var(--linea)}
+th{color:var(--suave);font-weight:400;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;color:var(--oro)}
+.nivel{margin-top:2rem}
+.nivel h3{margin:0 0 .9rem;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase}
+.nivel em{color:var(--cyan);font-style:normal}
+.sep{color:var(--suave);margin:0 .6rem}
+.rejilla{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.rejilla figure{margin:0;background:var(--panel);box-shadow:0 0 0 1px var(--linea)}
+.rejilla figcaption{display:flex;justify-content:space-between;padding:.45rem .65rem;
+  font-size:11px;color:var(--suave);border-top:1px solid var(--linea)}
+.dir{font-variant-numeric:tabular-nums;color:var(--verde)}
+footer{margin-top:5rem;padding-top:1.5rem;border-top:1px solid var(--linea);
+  color:var(--suave);font-size:12px}
+
+/* Aviso de trabajo en curso: tiene que verse antes que las cifras, porque un
+   100% mal leido hace mas dano que no ponerlo. */
+.aviso{background:#3a2a10;border-left:3px solid var(--oro);margin:1.5rem auto;
+  padding:1rem 1.2rem;max-width:900px;border-radius:4px}
+.aviso p{margin:0;color:var(--tinta);font-size:15px;line-height:1.65}
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;margin:1.5rem 0}
+.galeria figure{margin:0}
+.galeria img{width:100%;height:auto;image-rendering:pixelated;
+  border:1px solid var(--linea);border-radius:3px}
+.galeria figcaption{color:var(--suave);font-size:13px;margin-top:.5rem}
+audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
+</style>
+<div class="w"><nav class="top"><a href="index.html">Portada</a><a href="EMPEZAR.html">Empezar</a><a href="EL-JUEGO.html">El juego</a><a href="EL-CARTUCHO.html">El cartucho</a><a href="EL-CODIGO.html">El código</a><a href="HALLAZGOS.html" style=color:var(--tinta)>Hallazgos</a><a href="EN-EL-EMULADOR.html">En el emulador</a><a href="PREGUNTAS-ABIERTAS.html">Preguntas abiertas</a><a href="COMPARATIVA-TRACK-AND-FIELD.html">vs Track &amp; Field</a><a href="../FINDINGS.html" style="margin-left:auto;color:var(--oro)">English</a></nav>
+<h1 id="hyper-olympic-2-konami-rc-711-lo-que-dice-el-binario">Hyper Olympic 2 (Konami, RC-711) - lo que dice el binario</h1>
+<p>Todo lo de aqui sale de leer el cartucho o de medirlo en openMSX. Lo que es suposicion lleva la palabra SUPOSICION delante.</p>
+<h2 id="1-las-cuatro-pruebas">1. Las cuatro pruebas</h2>
+<p>0xE016 va de 1 a 4 y 0xE015 cuenta doce rondas. Fotografiadas una a una (<code>medidas/pruebas.txt</code>):</p>
+<pre><code>1  110 HURDLERS       record 12 SEC 93
+2  JAVELIN THROW      record 96 M 72
+3  HIGH JUMP          record 02 M 36
+4  1500 METER         record 03 min 31</code></pre>
+<p>Igual que en el cartucho hermano, la cuarta reaprovecha el decorado (0x655A) y el marcador (0x67C0) de la primera, y solo cambia el rotulo de la pizarra.</p>
+<h2 id="2-110-hurdlers-la-errata-esta-en-la-rom">2. &quot;110 HURDLERS&quot;: la errata esta en la ROM</h2>
+<p>El rotulo de la primera prueba no dice HURDLES sino HURDLERS. No es cosa de la captura: la tira de glifos de 0x64B1 es 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A, y en la fuente del cartucho (0x6197) esos indices son &quot; 110 HURDLERS &quot;.</p>
+<h2 id="3-los-records-son-de-verdad-pero-tres-de-los-cuatro-ya-estaban-batidos">3. Los records son de verdad, pero tres de los cuatro ya estaban batidos</h2>
+<p>MEDIDO en el binario: 0x517B lleva <code>00 12 93 / 00 96 72 / 00 02 36 / 00 03 31</code>, que INIT copia a 0xE040. O sea 12,93 s en las 110 vallas, 96,72 m en jabalina, 2,36 m en altura y 3:31 en los 1500.</p>
+<p>Los cuatro son records del mundo de verdad. Lo que <b>no</b> es verdad es que fueran los vigentes cuando salio el cartucho, que es lo que decia aqui antes:</p>
+<table><tr><th>prueba</th><th>el cartucho</th><th>de cuando</th><th>¿seguia en pie en 1984?</th></tr><tr><td>110 vallas</td><td>12,93</td><td>Renaldo Nehemiah, Zurich, agosto de 1981</td><td>si, y hasta 1989</td></tr><tr><td>jabalina</td><td>96,72</td><td>Ferenc Paragi, 1980</td><td><b>no</b>: Tom Petranoff tiro 99,72 en mayo de 1983</td></tr><tr><td>altura</td><td>2,36</td><td>la marca anterior al 2,37 de Zhu Jianhua</td><td><b>no</b>: Zhu Jianhua salto 2,37 el 11 de junio de 1983</td></tr><tr><td>1500 m</td><td>3:31</td><td>Steve Ovett, 3:31.36, agosto de 1980</td><td><b>no</b>: el propio Ovett lo dejo en 3:30.77 en septiembre de 1983</td></tr></table>
+<p><b>Tres de los cuatro caducaron en 1983</b>, y el que aguanta es el mas antiguo de todos. Junto con lo que pasa en el cartucho hermano, eso dice que <b>la tabla de records de los dos se compilo antes de la temporada de 1983</b>, aunque los cartuchos se vendieran en 1984.</p>
+<p>Las fechas no salen del cartucho, sino de las progresiones publicas de records: se dan como lo que son, un cotejo externo. Lo del cartucho es la cifra.</p>
+<h2 id="4-es-el-mismo-programa-que-hyper-olympic-1-con-las-pruebas-cambiadas">4. Es el mismo programa que Hyper Olympic 1, con las pruebas cambiadas</h2>
+<p>Alineando las dos ROM instruccion a instruccion -con los operandos de dieciseis bits puestos a cero, para que las direcciones no estorben-, 4.195 de las 5.032 instrucciones de Hyper Olympic 1 aparecen tambien aqui: el 83,4 %. Contado en bytes normalizados, 6.298 de 9.872, o sea el 63,8 % de este cartucho.</p>
+<p>Lo que NO viene del hermano son 1.519 bytes de codigo, y estan casi todos en cuatro sitios: el salto de la valla (0x5A1B), el motor de la jabalina (0x682A), el del salto de altura (0x6A66) y el dibujo de la valla como actor doble (0x7AAE).</p>
+<h2 id="5-la-valla-se-dibuja-en-dos-papeles">5. La valla se dibuja en DOS papeles</h2>
+<p>Un actor normal monta su figura en 0xE230 y la sube de una vez. La valla no cabe en una fila: 0x7AB3 monta la mitad de arriba en 0xE230 y la de abajo en 0xE270, y las sube por separado, cada una a su fila de la tabla de nombres. Es el unico actor del cartucho que hace esto.</p>
+<h2 id="6-derribar-una-valla-es-un-bit">6. Derribar una valla es un bit</h2>
+<p>Mientras el atleta salta (postura 13, diez cuadros contados en 0x5A34), 0x5A5B compara su columna con la de la valla que le toca. Si al acabar el salto estan a menos de ocho columnas, se pone el bit 4 de 0xE028 o 0xE029 y el atleta cae: 0x5AA5 le pone la postura 14, le borra los cuatro bytes de velocidad y le mete 0x14 cuadros de levantarse.</p>
+<h2 id="7-seis-sprites-menos-que-en-el-hermano">7. Seis sprites menos que en el hermano</h2>
+<p>0x4389 sube 26 filas de la tabla de atributos (<code>ld bc,01AFEh</code>); en Hyper Olympic 1 la misma rutina subia 32. La tabla de posturas tambien es mas corta: 18 entradas contra 25.</p>
+<h2 id="8-la-fuente-se-quedo-sin-x-y-sin-z-y-la-q-llego-tarde">8. La fuente se quedo sin X y sin Z, y la Q llego tarde</h2>
+<p>Los 51 glifos de 0x6197 empiezan ordenados: 0..9, el espacio, y luego el alfabeto <b>de la A a la Y saltandose la Q, la X y la Z</b>. Con A en el indice 0x0B, la P cae en 0x1A y la siguiente, en 0x1B, ya es la R.</p>
+<p>Y sin embargo <b>la Q existe</b>. Esta al final, en el indice <b>0x2C</b>, fuera del alfabeto, y el motivo es la unica palabra del juego que la necesita: el rotulo <b>QUALIFY</b> del marcador, que en 0x611E es la tira <code>2C 1E 0B 16 13 10 21</code>.</p>
+<p>X y Z no aparecen: ninguna palabra del cartucho las usa.</p>
+<p>La hoja entera esta en <code>docs/imagenes/fuente.png</code>, y la dibuja <code>tools/graficos.py</code> leyendo el rango que declara el listado.</p>
+<h2 id="9-lo-que-comparte-con-el-cartucho-hermano">9. Lo que comparte con el cartucho hermano</h2>
+<p>Byte a byte y sin normalizar nada: la fuente entera (408 bytes, los mismos 51 glifos sin Q, sin X y sin Z), los ocho registros del VDP, y los doce bytes muertos de 0x4E64, que tampoco los lee nadie aqui.</p>
+<h2 id="10-la-marca-oculta-de-konami-no-esta">10. La marca oculta de Konami NO esta</h2>
+<p>El truco que destapo Manuel Pazos -el codigo RC-7xx y el titulo en katakana escondidos detras del relleno del final de la ROM- no aparece: los dos ultimos bytes son 0xFF y delante hay codigo del reproductor de sonido. Se comprobo con <code>tools/marca_konami.py</code>, que en el mismo tiro SI la encuentra en Pippols.</p>
+<h2 id="11-el-reloj-esta-calculado-para-60-hz">11. El reloj esta calculado para 60 Hz</h2>
+<p>La rutina que cuenta el tiempo (0x56D7) es la misma que la del cartucho hermano y suma 1,665 centesimas por cuadro. Alli se midio: en un MSX de 50 Hz el reloj del juego avanza 0,8325 segundos por segundo real, y en uno de 60 Hz 0,9990. Ver <code>../HYPEROLYMPIC1_DISAM/medidas/reloj.md</code>.</p>
+<h2 id="12-a-que-familia-de-konami-pertenece">12. A que familia de Konami pertenece</h2>
+<h3 id="el-metodo">El metodo</h3>
+<p><code>tools/comun_normalizado.py</code>: traza las dos ROM con sus desensamblados ya hechos, decodifica las instrucciones, pone a cero los operandos de dieciseis bits -que son los que llevan direcciones- y busca los tramos comunes. Asi una rutina reensamblada en otro sitio SI se ve. Control: Frogger contra Time Pilot, que ya se sabia que comparten reproductor, da 667 bytes en 15 tramos.</p>
+<h3 id="las-cifras">Las cifras</h3>
+<pre><code>contra                bytes en comun   % de Hyper Olympic 2   tramo mayor
+-------------------   --------------   --------------------   -----------
+Hyper Olympic 1                6.298                 63,8 %        63 B
+Frogger                          175                  1,8 %        21 B
+Super Cobra                      173                  1,8 %        21 B
+Billiards de Konami              105                  1,1 %        23 B
+Monkey Academy                    83                  0,8 %        20 B
+Athletic Land                     78                  0,8 %        20 B
+Pippols                           44                  0,4 %        20 B
+Time Pilot                        21                  0,2 %        21 B</code></pre>
+<h3 id="lo-que-sale-de-ahi">Lo que sale de ahi</h3>
+<p>Los dos Hyper Olympic son el mismo programa. Con cualquier otro cartucho Konami de MSX de la serie no comparten NADA: los tramos mas largos son de veinte bytes, lo que dan por casualidad dos programas de la misma casa. No hay ni rastro del reproductor de Frogger y Time Pilot ni del armazon de Athletic Land. Son un TERCER armazon, con dos miembros.</p>
+<footer><p><em>Hyper Olympic 2</em> lo publico Konami para MSX; su numero de catalogo es RC-711 y son 16 KB. Todos los derechos sobre el juego siguen siendo de sus titulares. Este trabajo es de preservacion, estudio y documentacion, y la imagen del cartucho no se distribuye.</p></footer></div>

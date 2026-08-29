@@ -1,0 +1,142 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The code — Hyper Olympic 2 (Konami, 1984)</title>
+<style>
+:root{--tinta:#cfd0d4;--suave:#83868f;--fondo:#000;--panel:#0c0e13;--linea:#23262e;
+  --rojo:#ff897d;--cyan:#65dbef;--verde:#3eb849;--oro:#ded087}
+@media (prefers-color-scheme:light){:root{--tinta:#191a1e;--suave:#5a5d66;--fondo:#e9e7e1;
+  --panel:#f7f6f2;--linea:#d0cdc5;--rojo:#b23f34;--cyan:#1c6b7c;--verde:#2b7734;--oro:#8a7420}}
+:root[data-theme="dark"]{--tinta:#cfd0d4;--suave:#83868f;--fondo:#000;--panel:#0c0e13;
+  --linea:#23262e;--rojo:#ff897d;--cyan:#65dbef;--verde:#3eb849;--oro:#ded087}
+:root[data-theme="light"]{--tinta:#191a1e;--suave:#5a5d66;--fondo:#e9e7e1;--panel:#f7f6f2;
+  --linea:#d0cdc5;--rojo:#b23f34;--cyan:#1c6b7c;--verde:#2b7734;--oro:#8a7420}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);padding:0 1.25rem 6rem;
+  font:15px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.w{max-width:1120px;margin:0 auto}
+.n{max-width:68ch}
+h1,h2,h3,h4{font-weight:400;text-wrap:balance}
+a{color:var(--cyan)}
+img{image-rendering:pixelated;max-width:100%;height:auto;display:block}
+header.top{display:flex;flex-direction:column;align-items:center;gap:1.5rem;
+  padding:4rem 0 2rem;text-align:center}
+header.top img{width:min(100%,642px)}
+.claim{max-width:60ch;color:var(--suave);font-size:1.05rem}
+.claim b{color:var(--tinta);font-weight:400}
+.ficha{display:flex;flex-wrap:wrap;justify-content:center;gap:0 1.5rem;width:100%;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);
+  border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:.85rem 0}
+.ficha b{color:var(--rojo);font-weight:400}
+nav{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center;padding:1.25rem 0;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+nav a{color:var(--suave);text-decoration:none;border-bottom:1px solid transparent}
+nav a:hover,nav a:focus{color:var(--tinta);border-bottom-color:var(--rojo)}
+nav.docs{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);
+  margin-bottom:1rem}
+section{margin-top:4.5rem;scroll-margin-top:1rem}
+section>h2{font-size:1rem;letter-spacing:.1em;text-transform:uppercase;
+  border-left:3px solid var(--rojo);padding-left:.9rem;margin:0 0 1.5rem}
+.cifras{display:grid;gap:1px;background:var(--linea);border:1px solid var(--linea);
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.cifra{background:var(--panel);padding:1.1rem}
+.cifra b{display:block;font-size:1.7rem;color:var(--oro);font-weight:400;
+  font-variant-numeric:tabular-nums;line-height:1.2}
+.cifra span{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--suave)}
+.hall{border-top:1px solid var(--linea);padding-top:1.75rem;margin-top:2.5rem}
+.hall:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.hall h3{margin:0 0 .75rem;font-size:1.15rem;color:var(--rojo)}
+.hall h4{color:var(--oro);margin:1.5rem 0 .5rem;font-size:.95rem}
+.hall p{margin:0 0 1rem}
+pre.asm{background:var(--panel);border-left:2px solid var(--verde);margin:1.25rem 0;
+  padding:1rem 1.1rem;overflow-x:auto;font-size:13px;line-height:1.6;color:var(--tinta)}
+.par{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:820px){.par{grid-template-columns:1fr 1fr}}
+.par figure{margin:0}
+table{border-collapse:collapse;width:100%;margin:1.25rem 0;font-size:13px;display:block;
+  overflow-x:auto}
+th,td{text-align:left;padding:.5rem .75rem;border-bottom:1px solid var(--linea)}
+th{color:var(--suave);font-weight:400;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;color:var(--oro)}
+.nivel{margin-top:2rem}
+.nivel h3{margin:0 0 .9rem;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase}
+.nivel em{color:var(--cyan);font-style:normal}
+.sep{color:var(--suave);margin:0 .6rem}
+.rejilla{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.rejilla figure{margin:0;background:var(--panel);box-shadow:0 0 0 1px var(--linea)}
+.rejilla figcaption{display:flex;justify-content:space-between;padding:.45rem .65rem;
+  font-size:11px;color:var(--suave);border-top:1px solid var(--linea)}
+.dir{font-variant-numeric:tabular-nums;color:var(--verde)}
+footer{margin-top:5rem;padding-top:1.5rem;border-top:1px solid var(--linea);
+  color:var(--suave);font-size:12px}
+
+/* Aviso de trabajo en curso: tiene que verse antes que las cifras, porque un
+   100% mal leido hace mas dano que no ponerlo. */
+.aviso{background:#3a2a10;border-left:3px solid var(--oro);margin:1.5rem auto;
+  padding:1rem 1.2rem;max-width:900px;border-radius:4px}
+.aviso p{margin:0;color:var(--tinta);font-size:15px;line-height:1.65}
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;margin:1.5rem 0}
+.galeria figure{margin:0}
+.galeria img{width:100%;height:auto;image-rendering:pixelated;
+  border:1px solid var(--linea);border-radius:3px}
+.galeria figcaption{color:var(--suave);font-size:13px;margin-top:.5rem}
+audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
+</style>
+<div class="w"><nav class="top"><a href="index.html">Home</a><a href="GETTING-STARTED.html">Start</a><a href="THE-GAME.html">The game</a><a href="THE-CARTRIDGE.html">The cartridge</a><a href="THE-CODE.html" style=color:var(--tinta)>The code</a><a href="FINDINGS.html">Findings</a><a href="IN-THE-EMULATOR.html">In the emulator</a><a href="OPEN-QUESTIONS.html">Open questions</a><a href="COMPARISON-TRACK-AND-FIELD.html">vs Track &amp; Field</a><a href="es/EL-CODIGO.html" style="margin-left:auto;color:var(--oro)">Castellano</a></nav>
+<h1 id="the-code">The code</h1>
+<p>Sixteen kilobytes split into 9,872 bytes of code and 6,512 of data. There is no bank switching and no loading trick: the whole program is in plain sight between 0x4000 and 0x7FFF.</p>
+<p>And there is one thing worth knowing before reading any of it: <b>this cartridge is, for the most part, the same program as Hyper Olympic 1</b>. Lining both ROMs up instruction by instruction, 4,195 of that one&#x27;s 5,032 instructions turn up here: 83.4 %. What follows holds for both except where it says otherwise.</p>
+<h2 id="two-threads-sharing-the-work">Two threads sharing the work</h2>
+<p><b>The interrupt</b> (<code>INTERRUPCION</code>, 0x4010) comes in through the H.KEYI hook that INIT fills with a <code>jp</code>, and does everything that has to run at screen rate: it reads the controls, moves the sound player, counts the clock and calls the motor of whichever event is being played. It is where the game happens.</p>
+<p><b>The main program</b> carries the state machine: set up the scenery, wait for the attempt to end, hand out points, move to the next round. Most of the time it is waiting for the interrupt to set a bit.</p>
+<h2 id="the-four-motors-and-where-they-come-from">The four motors, and where they come from</h2>
+<p>This is the interesting part of this cartridge. The four events are new, but only two of the motors are:</p>
+<table><tr><th>event</th><th>motor</th><th>where it comes from</th></tr><tr><td>110 hurdles and 1500 m</td><td><code>MOTOR_DE_LA_CARRERA</code> (0x5187)</td><td>the same one as the sibling&#x27;s races</td></tr><tr><td>javelin</td><td><code>MOTOR_DE_LA_JABALINA</code> (0x680A)</td><td>written here, on the jump&#x27;s mould</td></tr><tr><td>high jump</td><td><code>MOTOR_DEL_SALTO_DE_ALTURA</code> (0x6A2C)</td><td><b>the hammer motor, reused</b></td></tr></table>
+<p>That third one is the one that says most. The motor that in the sibling cartridge span the hammer —wind up, mark the angle with the button and let go— is exactly the one that lifts the high jumper here. What changes is what gets drawn, not the mechanism.</p>
+<p>And there is a fourth piece that is not a motor but behaves like one: <code>AVANZA_EL_TIRO</code> (0x7D2B), which computes the flight. Both the javelin and the jump use it, and it is the only part of the cartridge that does real arithmetic.</p>
+<h2 id="what-this-cartridge-adds-1-519-bytes">What this cartridge adds: 1,519 bytes</h2>
+<p>The bytes of code that do <b>not</b> come from the sibling are 1,519, and they are nearly all in four places:</p>
+<ul><li><b>the hurdle jump</b> (0x5A1B), which is all the 110 hurdles adds to an ordinary race;</li><li><b>the javelin motor</b> (0x682A);</li><li><b>the high jump one</b> (0x6A2C);</li><li><b>drawing the hurdle as a double actor</b> (0x7AAE).</li></ul>
+<p>Everything else is the sibling.</p>
+<h3 id="the-hurdle-jump">The hurdle jump</h3>
+<p>While the athlete runs, bit 1 of <code>0xE0C5</code> asks to jump. The jump lasts ten frames, counted at 0x5A34, and while it lasts the pose is 13; when it ends, 6. Then 0x5A5B compares the athlete&#x27;s column with the column of the hurdle that is his and, if they are less than eight columns apart, sets bit 4 of <code>0xE028</code> or <code>0xE029</code>.</p>
+<p>That bit is the fall: 0x5AA5 gives him pose 14, wipes his four speed bytes and gives him 0x14 frames of getting back up. <b>Knocking a hurdle over is not a collision: it is a comparison of columns at one specific instant.</b></p>
+<h3 id="the-hurdle-is-drawn-on-two-sheets">The hurdle is drawn on two sheets</h3>
+<p>A normal actor assembles its figure in the scratch area at 0xE230 and uploads it in one go. The hurdle does not fit in one row, so 0x7AB3 assembles the top half at 0xE230 and the bottom half at 0xE270, and uploads them separately, each to its own row of the name table. It is the only actor in the cartridge that does this.</p>
+<h2 id="the-only-real-piece-of-arithmetic">The only real piece of arithmetic</h2>
+<p><code>CALCULA_EL_TIRO</code> (0x7D38) takes the running speed and the angle and gets from them the advance and the height for each frame, and finally the mark. For that there are three arithmetic routines written by hand, because the Z80 brings none:</p>
+<ul><li><code>DIVIDE</code> (0x7E75), shifting and subtracting;</li><li><code>MULTIPLICA</code> (0x7E93), shifting and adding;</li><li><code>PASA_A_BCD</code> (0x7EB7), which converts a binary number to BCD by doubling it in BCD, bit by bit, so that it can be printed.</li></ul>
+<p>And the sine comes from a table, <code>EL_SENO_DEL_ANGULO</code> (0x7E53): one byte per degree. No real-time approximations.</p>
+<h2 id="the-points">The points</h2>
+<p><code>PUNTUA_EL_INTENTO</code> (0x4F36) turns the mark into points, and the arithmetic flips sign depending on the event: the points come from the difference between the mark and a fixed per-event reference (<code>marca_de_referencia</code>, 0x5022). <b>In timed events the reference is on top</b> and the mark is subtracted from it; <b>in distance events it is underneath</b> and the mark is what beats it. Then it is multiplied by sixteen, and in odd-numbered events doubled once more.</p>
+<h2 id="the-cartridge-does-not-store-screens-it-stores-scripts">The cartridge does not store screens: it stores scripts</h2>
+<p>Not one screen is drawn in the ROM as such. What there is are <b>scripts</b>, and four different interpreters that read them.</p>
+<p><b>The long script</b> (<code>GUION_LARGO</code>, 0x4CF2) is the big one: a byte with the number of orders and then the orders, each starting with its type.</p>
+<table><tr><th>type</th><th>what it does</th></tr><tr><td>0</td><td>bytes to VRAM, with 0x11 as the run marker (RLE)</td></tr><tr><td>1</td><td>strings of font glyphs, uploaded as patterns</td></tr><tr><td>2</td><td>large-letter labels</td></tr><tr><td>3</td><td>fills of one byte</td></tr><tr><td>4+</td><td>repeat an eight-byte pattern N times</td></tr></table>
+<p><b>The short script</b> (<code>GUION_CORTO</code>, 0x4AFD) is for loose text, like the menu&#x27;s. <b>The label</b> (<code>LLENA_EL_PAPEL</code>, 0x4C4C) prepares text that is later stretched into large letters. And <b>the figure</b> (<code>MONTA_LA_FIGURA</code>, 0x79A5) expands an actor&#x27;s description into character codes.</p>
+<p>The scenery lists come in pairs: the hurdles and the 1500 metres share theirs (0x655A) and the javelin and the high jump the other (0x661F).</p>
+<h2 id="the-large-letters-are-manufactured">The large letters are manufactured</h2>
+<p>A large-letter label is not drawn anywhere: it is assembled on the fly. <code>MONTA_UN_ROTULO</code> (0x4C32) copies the <b>normal</b> 8x8 glyphs into a scratch area at 0xE230, and then <code>ESTIRA_LAS_LETRAS</code> (0x4C94) makes <b>three passes</b> pulling the top two bits out of each byte and pushing them into the byte eight positions earlier.</p>
+<p>With that, a row of eight glyphs yields four rows of pattern: the letter comes out twice the size without taking twice the ROM.</p>
+<h2 id="writing-to-the-vdp-without-the-interrupt-stepping-on-it">Writing to the VDP without the interrupt stepping on it</h2>
+<p>There are four routines devoted to this, and they all do the same thing (0x4DE5 and the ones below it).</p>
+<p>The problem: setting an address in the VDP is <b>two consecutive writes</b> to the control port, and the interrupt writes to the VDP too. If it slips in between the two, the address left standing is its own.</p>
+<p>The solution is not to forbid the interrupt but to <b>notice</b>: clear 0xE01D, set the address, and look at 0xE01D. If the interrupt went through in the middle it will have set it, and then you do it again. It is cheaper than disabling and re-enabling interrupts on every write, and it does not lose a frame.</p>
+<h2 id="the-sound-player">The sound player</h2>
+<p>Three channels, an eleven-byte record each, at 0xE160, 0xE16B and 0xE176:</p>
+<table><tr><th>offset</th><th>what it is</th></tr><tr><td>+0</td><td>note countdown</td></tr><tr><td>+1</td><td>base duration</td></tr><tr><td>+2</td><td>sound number</td></tr><tr><td>+3/+4</td><td>pointer to the string</td></tr><tr><td>+5</td><td>octave</td></tr><tr><td>+6</td><td>decay</td></tr><tr><td>+7</td><td>volume</td></tr><tr><td>+8</td><td>decay countdown</td></tr><tr><td>+9</td><td>repeats left</td></tr><tr><td>+0x0A</td><td>duration</td></tr></table>
+<p>The interesting part is <b>the sound number</b>, which carries information in its top bits: bit 7 says the note takes a single byte, bit 6 that channel 3 is used as noise, and <b>the bottom six are the priority</b>. A sound does not interrupt another one of higher priority.</p>
+<p>The strings live in <code>melodias</code> (0x6EAC): <code>0xFF</code> ends and <code>0xFE</code> starts over. The thirty-six pointers are at 0x6E64, and a sound with several voices takes consecutive entries.</p>
+<h2 id="the-actors">The actors</h2>
+<p>An actor is a sixteen-byte record in RAM, and there are four: 0xE120, 0xE130, 0xE140 and 0xE150.</p>
+<table><tr><th>offset</th><th>what it is</th></tr><tr><td>+0</td><td>flags</td></tr><tr><td>+1</td><td>counter</td></tr><tr><td>+2</td><td>step</td></tr><tr><td>+6</td><td>column within the figure</td></tr><tr><td>+7/+8</td><td>VRAM address</td></tr><tr><td>+9/+0A</td><td>the record that relieves it</td></tr><tr><td>+0B</td><td>row of the adjustment table</td></tr><tr><td>+0C</td><td>computed column</td></tr><tr><td>+0D/+0E</td><td>the figure</td></tr><tr><td>+0F</td><td>how many characters get painted</td></tr></table>
+<p>The four records sit <b>back to back</b> in memory, and that is where the trick comes from: bit 2 of the flags makes the actor push the one ahead and bit 3 the one behind, adding or subtracting 0x11 from the pointer. That is how the scenery drags itself along in a chain with nobody keeping a list of who pushes whom.</p>
+<h2 id="the-athlete-is-seven-sprites">The athlete is seven sprites</h2>
+<p><code>FICHA_DEL_QUE_JUEGA</code> (0x7F51) and what sits under it assemble the runner. He is not a sprite: he is <b>seven</b>, and every pose places them by hand. 0x7F85 uploads to VRAM whatever patterns the pose needs, and then it writes the seven rows of the attribute table, adding to each the row and column the athlete is at.</p>
+<p>There are eighteen poses (0x713C), seven fewer than in the sibling cartridge.</p>
+<h2 id="how-to-read-it">How to read it</h2>
+<p>The listing is generated; it is not hand-edited. The comments live apart, in <code>src/hyperolympic2.notes</code>, anchored to the address they describe.</p>
+<p>And here there is an extra caution, because <b>86.9 % of this cartridge&#x27;s comments are identical to one in the sibling</b>: they were ported, and a ported comment says what the instruction did <em>over there</em>. Two guards watch for it, and both have caught something real:</p>
+<ul><li><code>tools/repasa_el_porte.py</code> checks that every cited address exists here and that no annotation names the other one&#x27;s events. It caught nine addresses and a block heading that talked about the hammer.</li><li><code>tools/cifras_portadas.py</code> checks that, when a comment is identical to one in the sibling, the instruction it annotates is the same one too. It caught the two comments at 0x4389, which said &quot;32 sprites&quot; when here they are 26.</li></ul>
+<p>It is written up in detail in <a href="GETTING-STARTED.html">Getting started</a>.</p>
+<footer><p><em>Hyper Olympic 2</em> was published by Konami for the MSX; its catalogue number is RC-711 and it is 16 KB. All rights in the game remain with their holders. This is preservation, study and documentation work, and the cartridge image is not distributed.</p></footer></div>
