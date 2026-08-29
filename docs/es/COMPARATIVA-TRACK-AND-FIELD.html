@@ -174,7 +174,7 @@ B  0x530F  cp 012h</code></pre>
 <ul><li><code>marcador_del_salto_de_longitud</code>: A lo pinta en <b>dos bloques</b> (uno de 384 bytes desde 0x3960 y otro de 32 desde 0x3AE0, que van seguidos) y ademas parte rachas que se podian unir: <code>32 x 0xB0</code> mas <code>32 x 0xB0</code> en A es <code>64 x 0xB0</code> en B. B lo hace en <b>un bloque</b>. -9 bytes.</li><li><code>marcador_del_martillo</code>: lo mismo con las rachas. Donde A pone <code>racha de 10 x 0xC0 / 2 bytes tal cual C0 C1 / racha de 20 x 0xC1</code>, B pone <code>racha de 11 x 0xC0 / racha de 21 x 0xC1</code>. -14 bytes.</li><li><code>marcador_de_la_jabalina</code> (RC-711): igual. -6 bytes.</li></ul>
 <p>De control, <code>marcador_de_los_100_metros</code> (RC-710) sale identico en las dos compilaciones, los mismos 74 bytes.</p>
 <h3 id="3-2-solo-en-el-rc-711-se-corrige-hurdlers">3.2 Solo en el RC-711: se corrige HURDLERS</h3>
-<p>MEDIDO. El rotulo de letra grande de la tercera prueba, <code>rotulo_110_vallas</code>, es una lista de indices de glifo cerrada con 0xFF (el 0x11 de delante es el tipo de rotulo). Los indices son 0-9 las cifras, 10 el espacio y de 11 en adelante las letras de la A a la Y sin la Q, la X ni la Z.</p>
+<p>MEDIDO. El rotulo de letra grande de la PRIMERA prueba del RC-711, <code>rotulo_110_vallas</code>, es una lista de indices de glifo cerrada con 0xFF (el 0x11 de delante es el tipo de rotulo). Los indices son 0-9 las cifras, 10 el espacio y de 11 en adelante las letras de la A a la Y sin la Q, la X ni la Z.</p>
 <pre><code>A  0x64B1   11 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A FF
                   1  1  0     H  U  R  D  L  E  R  S
 B  0x64A6   11 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1C 0A 0A FF

@@ -26,7 +26,7 @@ The ROM is **not distributed here**. It goes in the root as `hyperolympic2.rom`,
 | bytes explained | 16,384 of 16,384 (100 %) |
 | traced code | 9,872 bytes, 5,345 instructions |
 | identified data | 6,512 bytes in 98 named ranges |
-| commented | 1,599 line comments, 29.9 % |
+| commented | 1,600 line comments, 29.9 % |
 | thin routines (under 10 %) | 0 of 647 |
 
 The annotations live apart from the listing, anchored to the address they
@@ -35,7 +35,7 @@ describe. What the `.notes` file holds:
 | | |
 |---|---|
 | named labels | 647 |
-| anchored comments | 1.586 |
+| anchored comments | 1.587 |
 | explained data ranges | 98 |
 
 ## It is the same program as Hyper Olympic 1
@@ -43,8 +43,9 @@ describe. What the `.notes` file holds:
 Two thirds of the code is shared. The annotations for the shared code come
 ported from the sibling cartridge with `tools/porta_notas.py`, which lines both
 ROMs up instruction by instruction with the sixteen-bit operands zeroed. The
-1,519 bytes that do not come from there —the hurdle jump, the javelin, the high
-jump and drawing the hurdle— were read here. The data blocks were NOT ported:
+2,227 bytes with no counterpart there —the javelin, the hurdle jump, the
+hurdle's double actor and getting back up after knocking one over— were read
+here. The data blocks were NOT ported:
 they were located again by walking the scripts.
 
 Porting a comment puts it at the right address without changing what it says, so

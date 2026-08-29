@@ -54,10 +54,11 @@ bits puestos a cero, para que las direcciones no estorben-, 4.195 de las 5.032
 instrucciones de Hyper Olympic 1 aparecen tambien aqui: el 83,4 %. Contado en
 bytes normalizados, 6.298 de 9.872, o sea el 63,8 % de este cartucho.
 
-Lo que NO viene del hermano son 1.519 bytes de codigo, y estan casi todos en
-cuatro sitios: el salto de la valla (0x5A1B), el motor de la jabalina
-(0x682A), el del salto de altura (0x6A66) y el dibujo de la valla como actor
-doble (0x7AAE).
+Lo que NO tiene pareja en el hermano son 2.227 bytes de codigo, en 247 tramos.
+Los cuatro mayores: el motor de la jabalina (0x682A, 434 bytes), el salto de la
+valla (0x5A1B, 172), MONTA_LA_VALLA (0x7AB3, 159) y EL_ATLETA_SE_LEVANTA
+(0x5AD7, 109). El salto de altura NO esta entre ellos: su motor es entero el del
+martillo del hermano.
 
 ## 5. La valla se dibuja en DOS papeles
 
@@ -129,19 +130,24 @@ que ya se sabia que comparten reproductor, da 667 bytes en 15 tramos.
 
     contra                bytes en comun   % de Hyper Olympic 2   tramo mayor
     -------------------   --------------   --------------------   -----------
-    Hyper Olympic 1                6.298                 63,8 %        63 B
-    Frogger                          175                  1,8 %        21 B
-    Super Cobra                      173                  1,8 %        21 B
-    Billiards de Konami              105                  1,1 %        23 B
-    Monkey Academy                    83                  0,8 %        20 B
-    Athletic Land                     78                  0,8 %        20 B
-    Pippols                           44                  0,4 %        20 B
+    Hyper Olympic 1                6.298                 63,8 %       681 B
+    Frogger                          175                  1,8 %        42 B
+    Super Cobra                      173                  1,8 %        37 B
+    Monkey Academy                    83                  0,8 %        37 B
+    Billiards de Konami              105                  1,1 %        36 B
+    Athletic Land                     78                  0,8 %        32 B
+    Pippols                           44                  0,4 %        22 B
     Time Pilot                        21                  0,2 %        21 B
 
 ### Lo que sale de ahi
 
-Los dos Hyper Olympic son el mismo programa. Con cualquier otro cartucho
-Konami de MSX de la serie no comparten NADA: los tramos mas largos son de
-veinte bytes, lo que dan por casualidad dos programas de la misma casa. No hay
-ni rastro del reproductor de Frogger y Time Pilot ni del armazon de Athletic
-Land. Son un TERCER armazon, con dos miembros.
+Los dos Hyper Olympic son el mismo programa: el tramo mayor son 681 bytes
+seguidos (0x7B52 aqui, 0x7B27 alli), o sea rutinas enteras.
+
+Con los demas cartuchos Konami de MSX de la serie la diferencia es de dos
+ordenes de magnitud: ninguno pasa del 2 %, y sus tramos mayores van de 21 a 42
+bytes. No hay ni rastro del reproductor de Frogger y Time Pilot ni del armazon
+de Athletic Land. Son un TERCER armazon, con dos miembros.
+
+Los 42 bytes de Frogger son la excepcion que merece mirarse, y queda apuntada:
+es mas de lo que da la casualidad, y no se ha identificado que rutina es.

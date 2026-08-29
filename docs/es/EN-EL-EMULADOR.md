@@ -56,7 +56,7 @@ medio centésimas, eso es 1,67 y 1,66 centésimas: media **1,665**, que es un
 sesentavo de segundo con cuatro cifras.
 
 Es **la misma rutina** que la del cartucho hermano, y allí está medida corriendo
-la prueba con el botón apretado y muestreando el contador una vez por segundo
+la prueba machacando el espacio y muestreando el contador una vez por segundo
 emulado:
 
 | máquina | Hz | reloj del juego por segundo real |

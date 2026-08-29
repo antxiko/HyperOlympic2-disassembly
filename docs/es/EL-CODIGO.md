@@ -40,18 +40,22 @@ Y hay un cuarto trozo que no es un motor pero se comporta como si lo fuera:
 `AVANZA_EL_TIRO` (0x7D2B), que calcula el vuelo. Lo usan la jabalina y el salto,
 y es lo único del cartucho que hace cuentas de verdad.
 
-## Lo que este cartucho añade: 1.519 bytes
+## Lo que este cartucho añade: 2.227 bytes
 
-Los bytes de código que **no** vienen del hermano son 1.519, y están casi todos
-en cuatro sitios:
+Alineando las dos ROM con `porta_notas.py`, los bytes de código de este cartucho
+que **no** tienen pareja en el hermano son **2.227**, repartidos en 247 tramos.
+Los cuatro mayores son, los cuatro, las dos pruebas nuevas de verdad:
 
-- **el salto de la valla** (0x5A1B), que es lo único que las 110 vallas añaden a
-  una carrera normal;
-- **el motor de la jabalina** (0x682A);
-- **el del salto de altura** (0x6A2C);
-- **el dibujo de la valla como actor doble** (0x7AAE).
+| tramo | bytes | qué es |
+|---|---|---|
+| 0x682A | 434 | el motor de la jabalina |
+| 0x5A1B | 172 | el salto de la valla |
+| 0x7AB3 | 159 | `MONTA_LA_VALLA`, el actor de dos papeles |
+| 0x5AD7 | 109 | `EL_ATLETA_SE_LEVANTA`, después de derribar una |
 
-Todo lo demás es el hermano.
+**El salto de altura no está en esa lista, y ése es el dato**: su motor es
+entero el del martillo del hermano. Lo demás son tramos pequeños, casi todos de
+una o dos instrucciones sueltas donde cambia una dirección o una constante.
 
 ### El salto de la valla
 

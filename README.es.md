@@ -26,7 +26,7 @@ La ROM **no se distribuye aqui**. Hace falta en la raiz como `hyperolympic2.rom`
 | bytes explicados | 16.384 de 16.384 (100 %) |
 | codigo trazado | 9.872 bytes, 5.345 instrucciones |
 | datos identificados | 6.512 bytes en 98 rangos con nombre |
-| comentado | 1.599 comentarios de linea, 29,9 % |
+| comentado | 1.600 comentarios de linea, 29,9 % |
 | rutinas flojas (por debajo del 10 %) | 0 de 647 |
 
 Las anotaciones viven aparte del listado, ancladas a la direccion que
@@ -35,7 +35,7 @@ describen. Lo que hay en el fichero `.notes`:
 | | |
 |---|---|
 | etiquetas con nombre | 647 |
-| comentarios anclados | 1.586 |
+| comentarios anclados | 1.587 |
 | rangos de datos con explicación | 98 |
 
 ## Es el mismo programa que Hyper Olympic 1
@@ -43,8 +43,8 @@ describen. Lo que hay en el fichero `.notes`:
 Dos tercios del codigo son comunes. Las anotaciones del codigo compartido vienen
 portadas del cartucho hermano con `tools/porta_notas.py`, que alinea las dos ROM
 instruccion a instruccion con los operandos de dieciseis bits puestos a cero. Los
-1.519 bytes que no vienen de alli -el salto de la valla, la jabalina, el salto de
-altura y el dibujo de la valla- se leyeron aqui. Los bloques de datos NO se
+2.227 bytes que no tienen pareja alli -la jabalina, el salto de la valla, el
+actor doble de la valla y el levantarse tras derribarla- se leyeron aqui. Los bloques de datos NO se
 portaron: se volvieron a localizar recorriendo los guiones.
 
 Portar un comentario lo coloca en la direccion buena sin cambiar lo que dice, asi

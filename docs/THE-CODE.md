@@ -40,18 +40,22 @@ And there is a fourth piece that is not a motor but behaves like one:
 `AVANZA_EL_TIRO` (0x7D2B), which computes the flight. Both the javelin and the
 jump use it, and it is the only part of the cartridge that does real arithmetic.
 
-## What this cartridge adds: 1,519 bytes
+## What this cartridge adds: 2,227 bytes
 
-The bytes of code that do **not** come from the sibling are 1,519, and they are
-nearly all in four places:
+Lining both ROMs up with `porta_notas.py`, the bytes of code in this cartridge
+with no counterpart in the sibling are **2,227**, spread over 247 runs. The four
+largest are, all four of them, the two genuinely new events:
 
-- **the hurdle jump** (0x5A1B), which is all the 110 hurdles adds to an ordinary
-  race;
-- **the javelin motor** (0x682A);
-- **the high jump one** (0x6A2C);
-- **drawing the hurdle as a double actor** (0x7AAE).
+| run | bytes | what it is |
+|---|---|---|
+| 0x682A | 434 | the javelin motor |
+| 0x5A1B | 172 | the hurdle jump |
+| 0x7AB3 | 159 | `MONTA_LA_VALLA`, the two-sheet actor |
+| 0x5AD7 | 109 | `EL_ATLETA_SE_LEVANTA`, after knocking one over |
 
-Everything else is the sibling.
+**The high jump is not on that list, and that is the point**: its motor is the
+sibling's hammer motor, whole. The rest are small runs, nearly all one or two
+loose instructions where an address or a constant changes.
 
 ### The hurdle jump
 

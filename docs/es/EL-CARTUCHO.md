@@ -16,11 +16,14 @@ INIT se prepara la casa y se va:
 
 1. engancha la interrupción en **H.KEYI** (0xFD9A) con un `jp` a 0x4010;
 2. limpia 0xE000-0xE3FE y pone la pila justo encima, en 0xE3FE;
-3. calla el PSG —los tres registros de tono a cero— y lo deja con el canal A a
-   volumen 8 y el mezclador a 0xA2;
-4. apaga el piloto de CAPS;
-5. copia los cuatro récords del mundo de 0x517B a 0xE040;
-6. coloca la flecha del menú en la primera línea.
+3. calla el PSG poniendo a cero sus registros **8, 9 y 10**, que son los tres
+   de volumen: no los de tono, que a cero no callarían nada;
+4. fija en el VDP la dirección de escritura 0x81A2 —y no escribe nada detrás;
+   ver [Preguntas abiertas](PREGUNTAS-ABIERTAS.md)—, y pone el registro 15 del
+   PSG, el puerto de salida, a 0xCF;
+5. apaga el piloto de CAPS;
+6. copia los cuatro récords del mundo de 0x517B a 0xE040;
+7. coloca la flecha del menú en la primera línea.
 
 A partir de ahí **el programa principal y la interrupción se reparten el
 trabajo**. La interrupción lleva el reloj, los mandos y lo que tiene que ir a
@@ -84,7 +87,7 @@ volcado conviene tenerlo presente o los números no cuadran.
 
 ## Veintiséis sprites, no treinta y dos
 
-`SUBE_LOS_COLORES_DE_LOS_SPRITES` (0x4389) sube `colores_de_los_sprites`
+`SUBE_LOS_COLORES_DE_LOS_SPRITES` (0x4388) sube `colores_de_los_sprites`
 (0x5161) a la tabla de atributos con la fila a 0xD1, o sea escondidos fuera de
 la pantalla, y son **veintiséis**: `ld bc,01afeh`. En Hyper Olympic 1 la misma
 rutina sube treinta y dos.

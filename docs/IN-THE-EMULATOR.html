@@ -99,7 +99,7 @@ audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
 <p>and in the cartridge&#x27;s font (0x6197) those indices read <code> 110 HURDLERS </code>. The typo is written into the ROM. The capture only shows the result.</p>
 <h2 id="the-clock-was-worked-out-for-60-hz">The clock was worked out for 60 Hz</h2>
 <p><code>SUMA_AL_RELOJ</code> (0x56D7) adds to the BCD counter at 0xE0A9-0xE0AB once per frame, alternating 0x0167 and 0x0166. If the top byte is seconds and the middle one hundredths, that is 1.67 and 1.66 hundredths: an average of <b>1.665</b>, which is one sixtieth of a second to four figures.</p>
-<p>It is <b>the same routine</b> as the sibling cartridge&#x27;s, and over there it is measured by running the event with the button held down and sampling the counter once per emulated second:</p>
+<p>It is <b>the same routine</b> as the sibling cartridge&#x27;s, and over there it is measured by running the event mashing the space bar and sampling the counter once per emulated second:</p>
 <table><tr><th>machine</th><th>Hz</th><th>game clock per real second</th></tr><tr><td>Philips VG-8020 (PAL)</td><td>50</td><td><b>0.8325 s</b> — runs 16.75 % short</td></tr><tr><td>C-BIOS MSX1 JP (NTSC)</td><td>60</td><td>0.9990 s — spot on</td></tr></table>
 <p>Both figures agree with the arithmetic: 50 × 1.665 = 83.25 and 60 × 1.665 = 99.9.</p>
 <p><b>The consequence:</b> on a European MSX the times the cartridge shows are not seconds. A 110 hurdles timed at 13.00 by the game took 15.6 real seconds. The qualifying marks at 0x500A and the world records at 0x517B are meant for the Japanese machine.</p>

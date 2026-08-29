@@ -56,7 +56,7 @@ one hundredths, that is 1.67 and 1.66 hundredths: an average of **1.665**, which
 is one sixtieth of a second to four figures.
 
 It is **the same routine** as the sibling cartridge's, and over there it is
-measured by running the event with the button held down and sampling the counter
+measured by running the event mashing the space bar and sampling the counter
 once per emulated second:
 
 | machine | Hz | game clock per real second |

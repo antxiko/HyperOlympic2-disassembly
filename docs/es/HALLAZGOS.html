@@ -102,7 +102,7 @@ audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
 <p>Las fechas no salen del cartucho, sino de las progresiones publicas de records: se dan como lo que son, un cotejo externo. Lo del cartucho es la cifra.</p>
 <h2 id="4-es-el-mismo-programa-que-hyper-olympic-1-con-las-pruebas-cambiadas">4. Es el mismo programa que Hyper Olympic 1, con las pruebas cambiadas</h2>
 <p>Alineando las dos ROM instruccion a instruccion -con los operandos de dieciseis bits puestos a cero, para que las direcciones no estorben-, 4.195 de las 5.032 instrucciones de Hyper Olympic 1 aparecen tambien aqui: el 83,4 %. Contado en bytes normalizados, 6.298 de 9.872, o sea el 63,8 % de este cartucho.</p>
-<p>Lo que NO viene del hermano son 1.519 bytes de codigo, y estan casi todos en cuatro sitios: el salto de la valla (0x5A1B), el motor de la jabalina (0x682A), el del salto de altura (0x6A66) y el dibujo de la valla como actor doble (0x7AAE).</p>
+<p>Lo que NO tiene pareja en el hermano son 2.227 bytes de codigo, en 247 tramos. Los cuatro mayores: el motor de la jabalina (0x682A, 434 bytes), el salto de la valla (0x5A1B, 172), MONTA_LA_VALLA (0x7AB3, 159) y EL_ATLETA_SE_LEVANTA (0x5AD7, 109). El salto de altura NO esta entre ellos: su motor es entero el del martillo del hermano.</p>
 <h2 id="5-la-valla-se-dibuja-en-dos-papeles">5. La valla se dibuja en DOS papeles</h2>
 <p>Un actor normal monta su figura en 0xE230 y la sube de una vez. La valla no cabe en una fila: 0x7AB3 monta la mitad de arriba en 0xE230 y la de abajo en 0xE270, y las sube por separado, cada una a su fila de la tabla de nombres. Es el unico actor del cartucho que hace esto.</p>
 <h2 id="6-derribar-una-valla-es-un-bit">6. Derribar una valla es un bit</h2>
@@ -126,14 +126,16 @@ audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
 <h3 id="las-cifras">Las cifras</h3>
 <pre><code>contra                bytes en comun   % de Hyper Olympic 2   tramo mayor
 -------------------   --------------   --------------------   -----------
-Hyper Olympic 1                6.298                 63,8 %        63 B
-Frogger                          175                  1,8 %        21 B
-Super Cobra                      173                  1,8 %        21 B
-Billiards de Konami              105                  1,1 %        23 B
-Monkey Academy                    83                  0,8 %        20 B
-Athletic Land                     78                  0,8 %        20 B
-Pippols                           44                  0,4 %        20 B
+Hyper Olympic 1                6.298                 63,8 %       681 B
+Frogger                          175                  1,8 %        42 B
+Super Cobra                      173                  1,8 %        37 B
+Monkey Academy                    83                  0,8 %        37 B
+Billiards de Konami              105                  1,1 %        36 B
+Athletic Land                     78                  0,8 %        32 B
+Pippols                           44                  0,4 %        22 B
 Time Pilot                        21                  0,2 %        21 B</code></pre>
 <h3 id="lo-que-sale-de-ahi">Lo que sale de ahi</h3>
-<p>Los dos Hyper Olympic son el mismo programa. Con cualquier otro cartucho Konami de MSX de la serie no comparten NADA: los tramos mas largos son de veinte bytes, lo que dan por casualidad dos programas de la misma casa. No hay ni rastro del reproductor de Frogger y Time Pilot ni del armazon de Athletic Land. Son un TERCER armazon, con dos miembros.</p>
+<p>Los dos Hyper Olympic son el mismo programa: el tramo mayor son 681 bytes seguidos (0x7B52 aqui, 0x7B27 alli), o sea rutinas enteras.</p>
+<p>Con los demas cartuchos Konami de MSX de la serie la diferencia es de dos ordenes de magnitud: ninguno pasa del 2 %, y sus tramos mayores van de 21 a 42 bytes. No hay ni rastro del reproductor de Frogger y Time Pilot ni del armazon de Athletic Land. Son un TERCER armazon, con dos miembros.</p>
+<p>Los 42 bytes de Frogger son la excepcion que merece mirarse, y queda apuntada: es mas de lo que da la casualidad, y no se ha identificado que rutina es.</p>
 <footer><p><em>Hyper Olympic 2</em> lo publico Konami para MSX; su numero de catalogo es RC-711 y son 16 KB. Todos los derechos sobre el juego siguen siendo de sus titulares. Este trabajo es de preservacion, estudio y documentacion, y la imagen del cartucho no se distribuye.</p></footer></div>

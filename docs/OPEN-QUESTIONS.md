@@ -11,12 +11,18 @@ The same ones as in the sibling cartridge and in the same posture, right next to
 the eight VDP registers: `00 70 38 70 / 00 A0 38 70 / 00 F0 38 F0`. Nobody reads
 them.
 
+## 2b. INIT sets a VRAM address and writes nothing behind it
+
+At 0x40A6 there is `ld de,081a2h` and a `call` to the routine that sets the VDP
+write address. No write to VRAM follows. The same as in the sibling cartridge.
+ASSUMPTION: it is left over from an earlier version.
+
 ## 2. The annotations come ported, and 16.6 % do not
 
 Of Hyper Olympic 1's 5,032 instructions, 4,195 turn up here and bring their
 comments with them (`tools/porta_notas.py` lines both ROMs up and moves the Ls,
-the Cs and the Bs). The 1,519 bytes of code that do NOT come from the sibling
-were read and commented by hand. Even so, a ported comment says what the
+the Cs and the Bs). The 2,227 bytes of code with no counterpart there were read and commented by
+hand. Even so, a ported comment says what the
 instruction did IN THE OTHER CARTRIDGE; where the meaning changes —the event
 names above all— it was corrected one by one, but this is the place where
 something could have slipped through.
@@ -32,11 +38,12 @@ The D ranges and the F widths were worked out here again by walking the scripts,
 the melodies, the poses and the actor records with the same tools. Not one comes
 copied from the sibling.
 
-## 4. The large-letter labels go by address, not by name
+## 4. Fifteen large-letter labels go by address, not by name
 
-The 31 labels from 0x632F to 0x64B0 are delimited by the walk over the scripts,
-but only four have a name of their own: the four events'. The rest are published
-as `rotulo_XXXX`. Naming them would mean drawing them.
+The NINETEEN large-letter labels, from 0x632F to 0x64EF, are delimited by the
+walk over the scripts, but only FOUR have a name of their own: the four events',
+which start at 0x64B1. The other FIFTEEN are published as `rotulo_XXXX`. Naming
+them would mean drawing them.
 
 ## 5. Five small gaps in the object's patterns
 

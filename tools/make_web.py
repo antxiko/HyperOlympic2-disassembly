@@ -53,7 +53,7 @@ TXT = {
         claim="Cuatro pruebas nuevas sobre el programa del cartucho anterior: "
               "el 83,4 % de sus instrucciones están aquí, y el motor que allí "
               "hacía girar el martillo es el que aquí levanta al saltador de "
-              "altura. Lo propio de éste cabe en 1.519 bytes — y en el rótulo "
+              "altura. Lo propio de éste cabe en 2.227 bytes — y en el rótulo "
               "de la primera prueba, que dice HURDLERS.",
         ficha=["Konami · <b>© Konami 1984</b>",
                "Cartucho <b>RC-711</b>, 16 KB",
@@ -93,7 +93,7 @@ TXT = {
         claim="Four new events on top of the previous cartridge's program: "
               "83.4 % of its instructions are here, and the motor that span "
               "the hammer over there is the one that lifts the high jumper "
-              "here. What belongs to this one fits in 1,519 bytes — and in the "
+              "here. What belongs to this one fits in 2,227 bytes — and in the "
               "first event's label, which reads HURDLERS.",
         ficha=["Konami · <b>© Konami 1984</b>",
                "An <b>RC-711</b> 16 KB cartridge",
@@ -129,7 +129,8 @@ HALLAZGOS = {
         ("«110 HURDLERS»: la errata está en la ROM",
          "<p>El rótulo de la primera prueba tiene una R de más. No es la "
          "captura, ni el emulador, ni el recorte: <b>está escrita en los "
-         "datos</b>. La tira de glifos de 0x64B1 es</p>"
+         "datos</b>. El rótulo de 0x64B1 lleva, detrás de su byte de cabecera, "
+         "la tira de glifos</p>"
          "<pre class=\"asm\">0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A</pre>"
          "<p>y en la fuente del cartucho (0x6197) esos índices son "
          "<code> 110 HURDLERS </code>. La captura solo enseña el resultado.</p>"),
@@ -140,7 +141,7 @@ HALLAZGOS = {
          "el que allí hacía girar el martillo: tomar impulso, marcar el ángulo "
          "con el botón y soltar.</p>"
          "<p>Cambia lo que se dibuja, no la mecánica. Lo que este cartucho "
-         "añade de verdad son <b>1.519 bytes</b>, casi todos en cuatro sitios: "
+         "añade de verdad son <b>2.227 bytes</b>, y sus cuatro tramos mayores son: "
          "el salto de la valla, el motor de la jabalina, el del salto de "
          "altura y el dibujo de la valla.</p>"),
         ("Derribar una valla no es una colisión",
@@ -202,8 +203,8 @@ HALLAZGOS = {
          "a cero —para que una rutina reensamblada en otro sitio también se "
          "vea—, este cartucho comparte <b>6.298 bytes, el 63,8 %</b>, con su "
          "hermano. Con cualquier otro cartucho Konami de MSX de esta serie no "
-         "llega al 2 %, y el tramo común más largo es de veintitrés bytes: lo "
-         "que dan por casualidad dos programas de la misma casa.</p>"
+         "llega al 2 %, y sus tramos comunes más largos van de 21 a 42 bytes, "
+         "frente a los <b>681 seguidos</b> que comparte con el hermano.</p>"
          "<p>O sea que los dos Hyper Olympic no son ni el armazón de unos ni "
          "el de los otros. Son un <b>tercero</b>, y de momento solo tiene dos "
          "miembros. Las cifras completas están en Hallazgos.</p>"),
@@ -222,7 +223,8 @@ HALLAZGOS = {
         ("“110 HURDLERS”: the typo is in the ROM",
          "<p>The first event's label has one R too many. It is not the "
          "capture, nor the emulator, nor the crop: <b>it is written into the "
-         "data</b>. The glyph string at 0x64B1 is</p>"
+         "data</b>. The label at 0x64B1 carries, behind its header byte, the "
+         "glyph string</p>"
          "<pre class=\"asm\">0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A</pre>"
          "<p>and in the cartridge's font (0x6197) those indices read "
          "<code> 110 HURDLERS </code>. The capture only shows the result.</p>"),
@@ -233,7 +235,7 @@ HALLAZGOS = {
          "the one that span the hammer over there: wind up, mark the angle "
          "with the button and let go.</p>"
          "<p>What changes is what gets drawn, not the mechanism. What this "
-         "cartridge really adds is <b>1,519 bytes</b>, nearly all in four "
+         "cartridge really adds is <b>2,227 bytes</b>, and its four largest runs are: "
          "places: the hurdle jump, the javelin motor, the high jump one and "
          "the drawing of the hurdle.</p>"),
         ("Knocking a hurdle over is not a collision",
@@ -297,8 +299,8 @@ HALLAZGOS = {
          "a routine reassembled somewhere else still shows up— this cartridge "
          "shares <b>6,298 bytes, 63.8 %</b>, with its sibling. With any other "
          "Konami MSX cartridge in this series it does not reach 2 %, and the "
-         "longest common run is twenty-three bytes: what two programs from the "
-         "same house give by coincidence.</p>"
+         "longest common runs go from 21 to 42 bytes, against the <b>681 "
+         "consecutive</b> ones it shares with the sibling.</p>"
          "<p>So the two Hyper Olympics are neither one framework nor the "
          "other. They are a <b>third</b>, and so far it has just two members. "
          "The full figures are in Findings.</p>"),

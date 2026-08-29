@@ -174,7 +174,7 @@ B  0x530F  cp 012h</code></pre>
 <ul><li><code>marcador_del_salto_de_longitud</code>: A paints it in <b>two blocks</b> (384 bytes from 0x3960 and 32 from 0x3AE0, which are contiguous) and also splits runs that could be joined: <code>32 x 0xB0</code> plus <code>32 x 0xB0</code> in A is <code>64 x 0xB0</code> in B. B does it in <b>one block</b>. -9 bytes.</li><li><code>marcador_del_martillo</code>: same with the runs. Where A writes <code>run of 10 x 0xC0 / 2 literal bytes C0 C1 / run of 20 x 0xC1</code>, B writes <code>run of 11 x 0xC0 / run of 21 x 0xC1</code>. -14 bytes.</li><li><code>marcador_de_la_jabalina</code> (RC-711): likewise. -6 bytes.</li></ul>
 <p>As a control, <code>marcador_de_los_100_metros</code> (RC-710) comes out identical in both builds, the same 74 bytes.</p>
 <h3 id="3-2-rc-711-only-hurdlers-is-corrected">3.2 RC-711 only: HURDLERS is corrected</h3>
-<p>MEASURED. The big-letter label of the third event, <code>rotulo_110_vallas</code>, is a list of glyph indices closed with 0xFF (the leading 0x11 is the label type). Indices 0-9 are the digits, 10 is the space, and from 11 up come the letters A to Y with no Q, X or Z.</p>
+<p>MEASURED. The big-letter label of RC-711&#x27;s FIRST event, <code>rotulo_110_vallas</code>, is a list of glyph indices closed with 0xFF (the leading 0x11 is the label type). Indices 0-9 are the digits, 10 is the space, and from 11 up come the letters A to Y with no Q, X or Z.</p>
 <pre><code>A  0x64B1   11 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A FF
                   1  1  0     H  U  R  D  L  E  R  S
 B  0x64A6   11 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1C 0A 0A FF

@@ -99,7 +99,7 @@ audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
 <p>y en la fuente del cartucho (0x6197) esos índices son <code> 110 HURDLERS </code>. La errata está escrita en la ROM. La captura solo enseña el resultado.</p>
 <h2 id="el-reloj-esta-calculado-para-60-hz">El reloj está calculado para 60 Hz</h2>
 <p><code>SUMA_AL_RELOJ</code> (0x56D7) suma al contador BCD de 0xE0A9-0xE0AB una vez por cuadro, alternando 0x0167 y 0x0166. Si el byte de arriba son segundos y el de en medio centésimas, eso es 1,67 y 1,66 centésimas: media <b>1,665</b>, que es un sesentavo de segundo con cuatro cifras.</p>
-<p>Es <b>la misma rutina</b> que la del cartucho hermano, y allí está medida corriendo la prueba con el botón apretado y muestreando el contador una vez por segundo emulado:</p>
+<p>Es <b>la misma rutina</b> que la del cartucho hermano, y allí está medida corriendo la prueba machacando el espacio y muestreando el contador una vez por segundo emulado:</p>
 <table><tr><th>máquina</th><th>Hz</th><th>reloj del juego por segundo real</th></tr><tr><td>Philips VG-8020 (PAL)</td><td>50</td><td><b>0,8325 s</b> — se queda un 16,75 % corto</td></tr><tr><td>C-BIOS MSX1 JP (NTSC)</td><td>60</td><td>0,9990 s — clavado</td></tr></table>
 <p>Las dos cifras coinciden con la cuenta: 50 × 1,665 = 83,25 y 60 × 1,665 = 99,9.</p>
 <p><b>La consecuencia:</b> en un MSX europeo los tiempos que enseña el cartucho no son segundos. Unas 110 vallas cronometradas en 13,00 por el juego han durado 15,6 segundos de verdad. Las marcas de clasificación de 0x500A y los récords del mundo de 0x517B están pensados para la máquina japonesa.</p>

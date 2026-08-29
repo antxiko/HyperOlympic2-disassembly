@@ -289,7 +289,7 @@ builds, the same 74 bytes.
 
 ### 3.2 RC-711 only: HURDLERS is corrected
 
-MEASURED. The big-letter label of the third event, `rotulo_110_vallas`, is a
+MEASURED. The big-letter label of RC-711's FIRST event, `rotulo_110_vallas`, is a
 list of glyph indices closed with 0xFF (the leading 0x11 is the label type).
 Indices 0-9 are the digits, 10 is the space, and from 11 up come the letters A
 to Y with no Q, X or Z.

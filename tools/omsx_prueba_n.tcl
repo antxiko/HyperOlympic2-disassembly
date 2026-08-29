@@ -1,6 +1,6 @@
 # Fotografia UNA prueba desde una partida limpia.
 #
-# 0x4218 arranca la partida poniendo 0xE015 y 0xE016 a 1. Aqui se para justo
+# 0x4216 arranca la partida poniendo 0xE015 y 0xE016 a 1. Aqui se para justo
 # despues (0x422E) y se cambia 0xE016 por la prueba que se quiere ver; de ahi
 # en adelante corre el juego solo, con sus datos. Es una MEDIDA: no se toca el
 # cartucho, solo el numero de prueba que el propio juego usa como indice.

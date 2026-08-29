@@ -56,9 +56,11 @@ zeroed, so the addresses do not get in the way— 4,195 of Hyper Olympic 1's 5,0
 instructions turn up here too: 83.4 %. Counted in normalised bytes, 6,298 out of
 9,872, that is 63.8 % of this cartridge.
 
-What does NOT come from the sibling is 1,519 bytes of code, and they are nearly
-all in four places: the hurdle jump (0x5A1B), the javelin motor (0x682A), the
-high jump one (0x6A66) and drawing the hurdle as a double actor (0x7AAE).
+What has NO counterpart in the sibling is 2,227 bytes of code, spread over 247
+runs. The four largest: the javelin motor (0x682A, 434 bytes), the hurdle jump
+(0x5A1B, 172), MONTA_LA_VALLA (0x7AB3, 159) and EL_ATLETA_SE_LEVANTA (0x5AD7,
+109). The high jump is NOT among them: its motor is the sibling's hammer motor,
+whole.
 
 ## 5. The hurdle is drawn on TWO sheets
 
@@ -130,19 +132,24 @@ already known to share a sound player, gives 667 bytes in 15 runs.
 
     against               bytes in common   % of Hyper Olympic 2   longest run
     -------------------   ---------------   --------------------   -----------
-    Hyper Olympic 1                 6,298                 63.8 %        63 B
-    Frogger                           175                  1.8 %        21 B
-    Super Cobra                       173                  1.8 %        21 B
-    Konami's Billiards                105                  1.1 %        23 B
-    Monkey Academy                     83                  0.8 %        20 B
-    Athletic Land                      78                  0.8 %        20 B
-    Pippols                            44                  0.4 %        20 B
+    Hyper Olympic 1                 6,298                 63.8 %       681 B
+    Frogger                           175                  1.8 %        42 B
+    Super Cobra                       173                  1.8 %        37 B
+    Monkey Academy                     83                  0.8 %        37 B
+    Konami's Billiards                105                  1.1 %        36 B
+    Athletic Land                      78                  0.8 %        32 B
+    Pippols                            44                  0.4 %        22 B
     Time Pilot                         21                  0.2 %        21 B
 
 ### What comes out of that
 
-The two Hyper Olympics are the same program. With any other Konami MSX cartridge
-in the series they share NOTHING: the longest runs are twenty bytes, which is
-what two programs from the same house give by coincidence. There is no trace of
-Frogger and Time Pilot's sound player, nor of Athletic Land's framework. They
-are a THIRD framework, with two members.
+The two Hyper Olympics are the same program: the longest run is 681 consecutive
+bytes (0x7B52 here, 0x7B27 there) — whole routines.
+
+With the other Konami MSX cartridges in the series the difference is two orders
+of magnitude: none goes past 2 %, and their longest runs go from 21 to 42 bytes.
+There is no trace of Frogger and Time Pilot's sound player, nor of Athletic
+Land's framework. They are a THIRD framework, with two members.
+
+Frogger's 42 bytes are the exception worth looking at, and it is noted here: it
+is more than coincidence gives, and the routine has not been identified.

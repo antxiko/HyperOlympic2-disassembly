@@ -16,11 +16,14 @@ INIT sets up house and leaves:
 
 1. hooks the interrupt at **H.KEYI** (0xFD9A) with a `jp` to 0x4010;
 2. clears 0xE000-0xE3FE and puts the stack right above it, at 0xE3FE;
-3. silences the PSG —the three tone registers to zero— and leaves it with
-   channel A at volume 8 and the mixer at 0xA2;
-4. turns off the CAPS lamp;
-5. copies the four world records from 0x517B to 0xE040;
-6. puts the menu arrow on the first line.
+3. silences the PSG by zeroing its registers **8, 9 and 10**, which are the
+   three volume ones: not the tone ones, which at zero would silence nothing;
+4. sets the VDP write address to 0x81A2 —and writes nothing behind it; see
+   [Open questions](OPEN-QUESTIONS.md)— and puts PSG register 15, the output
+   port, at 0xCF;
+5. turns off the CAPS lamp;
+6. copies the four world records from 0x517B to 0xE040;
+7. puts the menu arrow on the first line.
 
 From then on **the main program and the interrupt split the work**. The
 interrupt carries the clock, the controls and anything that has to go at screen
@@ -85,7 +88,7 @@ when reading a dump, or the numbers will not add up.
 
 ## Twenty-six sprites, not thirty-two
 
-`SUBE_LOS_COLORES_DE_LOS_SPRITES` (0x4389) uploads `colores_de_los_sprites`
+`SUBE_LOS_COLORES_DE_LOS_SPRITES` (0x4388) uploads `colores_de_los_sprites`
 (0x5161) into the attribute table with the row at 0xD1, that is, hidden off
 screen, and there are **twenty-six** of them: `ld bc,01afeh`. In Hyper Olympic 1
 the same routine uploads thirty-two.

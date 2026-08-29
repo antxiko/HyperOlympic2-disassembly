@@ -292,7 +292,7 @@ compilaciones, los mismos 74 bytes.
 
 ### 3.2 Solo en el RC-711: se corrige HURDLERS
 
-MEDIDO. El rotulo de letra grande de la tercera prueba, `rotulo_110_vallas`,
+MEDIDO. El rotulo de letra grande de la PRIMERA prueba del RC-711, `rotulo_110_vallas`,
 es una lista de indices de glifo cerrada con 0xFF (el 0x11 de delante es el
 tipo de rotulo). Los indices son 0-9 las cifras, 10 el espacio y de 11 en
 adelante las letras de la A a la Y sin la Q, la X ni la Z.

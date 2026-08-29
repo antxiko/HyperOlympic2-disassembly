@@ -94,10 +94,10 @@ audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
 <table><tr><th>prueba</th><th>motor</th><th>de dónde viene</th></tr><tr><td>110 vallas y 1500 m</td><td><code>MOTOR_DE_LA_CARRERA</code> (0x5187)</td><td>el mismo que las carreras del hermano</td></tr><tr><td>jabalina</td><td><code>MOTOR_DE_LA_JABALINA</code> (0x680A)</td><td>escrito aquí, sobre el molde del salto</td></tr><tr><td>salto de altura</td><td><code>MOTOR_DEL_SALTO_DE_ALTURA</code> (0x6A2C)</td><td><b>el motor del martillo, reaprovechado</b></td></tr></table>
 <p>Ese tercero es el que más dice. El motor que en el cartucho hermano hacía girar el martillo —tomar impulso, marcar el ángulo con el botón y soltar— es exactamente el que aquí levanta al saltador de altura. Cambia lo que se dibuja, no la mecánica.</p>
 <p>Y hay un cuarto trozo que no es un motor pero se comporta como si lo fuera: <code>AVANZA_EL_TIRO</code> (0x7D2B), que calcula el vuelo. Lo usan la jabalina y el salto, y es lo único del cartucho que hace cuentas de verdad.</p>
-<h2 id="lo-que-este-cartucho-anade-1-519-bytes">Lo que este cartucho añade: 1.519 bytes</h2>
-<p>Los bytes de código que <b>no</b> vienen del hermano son 1.519, y están casi todos en cuatro sitios:</p>
-<ul><li><b>el salto de la valla</b> (0x5A1B), que es lo único que las 110 vallas añaden a una carrera normal;</li><li><b>el motor de la jabalina</b> (0x682A);</li><li><b>el del salto de altura</b> (0x6A2C);</li><li><b>el dibujo de la valla como actor doble</b> (0x7AAE).</li></ul>
-<p>Todo lo demás es el hermano.</p>
+<h2 id="lo-que-este-cartucho-anade-2-227-bytes">Lo que este cartucho añade: 2.227 bytes</h2>
+<p>Alineando las dos ROM con <code>porta_notas.py</code>, los bytes de código de este cartucho que <b>no</b> tienen pareja en el hermano son <b>2.227</b>, repartidos en 247 tramos. Los cuatro mayores son, los cuatro, las dos pruebas nuevas de verdad:</p>
+<table><tr><th>tramo</th><th>bytes</th><th>qué es</th></tr><tr><td>0x682A</td><td>434</td><td>el motor de la jabalina</td></tr><tr><td>0x5A1B</td><td>172</td><td>el salto de la valla</td></tr><tr><td>0x7AB3</td><td>159</td><td><code>MONTA_LA_VALLA</code>, el actor de dos papeles</td></tr><tr><td>0x5AD7</td><td>109</td><td><code>EL_ATLETA_SE_LEVANTA</code>, después de derribar una</td></tr></table>
+<p><b>El salto de altura no está en esa lista, y ése es el dato</b>: su motor es entero el del martillo del hermano. Lo demás son tramos pequeños, casi todos de una o dos instrucciones sueltas donde cambia una dirección o una constante.</p>
 <h3 id="el-salto-de-la-valla">El salto de la valla</h3>
 <p>Mientras el atleta corre, el bit 1 de <code>0xE0C5</code> pide saltar. El salto dura diez cuadros, contados en 0x5A34, y mientras dura la postura es la 13; al acabar, la</p>
 <ol><li>Entonces 0x5A5B compara la columna del atleta con la de la valla que le toca</li></ol>
