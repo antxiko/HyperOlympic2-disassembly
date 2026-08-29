@@ -17,7 +17,7 @@
 # 4 = 1500 METER. La cuarta reaprovecha el decorado y el marcador de la
 # primera y solo cambia el rotulo de la pizarra, igual que en el cartucho
 # hermano. El rotulo de la primera dice HURDLERS y no HURDLES: la errata esta
-# en los propios datos, en la tira de glifos de 0x64B1.
+# en los propios datos: el rotulo de 0x64B1, detras de su byte de cabecera.
 #
 # LA VRAM. SCREEN 2 con los tres tercios: nombres en 0x3800, patrones en
 # 0x2000, color en 0x0000, atributos de sprite en 0x3B00 y patrones de sprite

@@ -38,7 +38,8 @@ On the first event's screen you can read **110 HURDLERS**, with an extra R. A
 capture on its own would prove nothing: it could be the emulator, the crop or
 the resolution.
 
-The proof is in the data. The glyph string at 0x64B1 is
+The proof is in the data. The `rotulo_110_vallas` label starts at 0x64B1, and
+behind its header byte it carries the glyph string
 
 ```
 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A

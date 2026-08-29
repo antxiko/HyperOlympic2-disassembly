@@ -19,8 +19,9 @@ el marcador (0x67C0) de la primera, y solo cambia el rotulo de la pizarra.
 ## 2. "110 HURDLERS": la errata esta en la ROM
 
 El rotulo de la primera prueba no dice HURDLES sino HURDLERS. No es cosa de la
-captura: la tira de glifos de 0x64B1 es 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C
-0A, y en la fuente del cartucho (0x6197) esos indices son " 110 HURDLERS ".
+captura: el rotulo de 0x64B1 lleva, detras de su byte de cabecera, la tira de glifos
+0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A, que en la fuente del cartucho
+(0x6197) se lee " 110 HURDLERS ".
 
 ## 3. Los records son de verdad, pero tres de los cuatro ya estaban batidos
 

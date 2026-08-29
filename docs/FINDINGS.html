@@ -93,7 +93,7 @@ audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
 4  1500 METER         record 03 min 31</code></pre>
 <p>Just as in the sibling cartridge, the fourth reuses the scenery (0x655A) and the scoreboard (0x67C0) of the first, and only the label on the board changes.</p>
 <h2 id="2-110-hurdlers-the-typo-is-in-the-rom">2. &quot;110 HURDLERS&quot;: the typo is in the ROM</h2>
-<p>The first event&#x27;s label does not say HURDLES but HURDLERS. It is not the capture: the glyph string at 0x64B1 is 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A, and in the cartridge&#x27;s font (0x6197) those indices read &quot; 110 HURDLERS &quot;.</p>
+<p>The first event&#x27;s label does not say HURDLES but HURDLERS. It is not the capture: the label at 0x64B1 carries, behind its header byte, the glyph string 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A, which in the cartridge&#x27;s font (0x6197) reads &quot; 110 HURDLERS &quot;.</p>
 <h2 id="3-the-records-are-real-but-three-of-the-four-had-already-been-beaten">3. The records are real, but three of the four had already been beaten</h2>
 <p>MEASURED in the binary: 0x517B holds <code>00 12 93 / 00 96 72 / 00 02 36 / 00 03 31</code>, which INIT copies to 0xE040. That is 12.93 s in the 110 hurdles, 96.72 m in the javelin, 2.36 m in the high jump and 3:31 in the 1500 m.</p>
 <p>All four are genuine world records. What is <b>not</b> true is that they were the standing records when the cartridge came out, which is what this page used to say:</p>

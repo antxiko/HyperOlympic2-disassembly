@@ -19,8 +19,9 @@ scoreboard (0x67C0) of the first, and only the label on the board changes.
 ## 2. "110 HURDLERS": the typo is in the ROM
 
 The first event's label does not say HURDLES but HURDLERS. It is not the
-capture: the glyph string at 0x64B1 is 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C
-0A, and in the cartridge's font (0x6197) those indices read " 110 HURDLERS ".
+capture: the label at 0x64B1 carries, behind its header byte, the glyph string
+0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A, which in the cartridge's font
+(0x6197) reads " 110 HURDLERS ".
 
 ## 3. The records are real, but three of the four had already been beaten
 

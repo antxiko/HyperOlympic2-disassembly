@@ -38,7 +38,8 @@ En la pantalla de la primera prueba se lee **110 HURDLERS**, con una R de más.
 Una captura sola no demostraría nada: podría ser cosa del emulador, del
 recorte o de la resolución.
 
-La prueba está en los datos. La tira de glifos de 0x64B1 es
+La prueba está en los datos. El rótulo `rotulo_110_vallas` empieza en 0x64B1,
+y detrás de su byte de cabecera lleva la tira de glifos
 
 ```
 0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A

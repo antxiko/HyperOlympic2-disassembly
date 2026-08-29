@@ -94,7 +94,7 @@ audio{display:block;width:100%;max-width:640px;margin:.75rem 0 1.5rem}
 <p>Los cuatro récords coinciden byte a byte con la tabla de 0x517B, que INIT copia a 0xE040: <code>00 12 93 / 00 96 72 / 00 02 36 / 00 03 31</code>. O sea que lo que se ve en pantalla y lo que dice el binario son lo mismo, comprobado por los dos lados.</p>
 <h2 id="la-captura-confirma-la-errata-pero-no-es-la-prueba">La captura confirma la errata, pero no es la prueba</h2>
 <p>En la pantalla de la primera prueba se lee <b>110 HURDLERS</b>, con una R de más. Una captura sola no demostraría nada: podría ser cosa del emulador, del recorte o de la resolución.</p>
-<p>La prueba está en los datos. La tira de glifos de 0x64B1 es</p>
+<p>La prueba está en los datos. El rótulo <code>rotulo_110_vallas</code> empieza en 0x64B1, y detrás de su byte de cabecera lleva la tira de glifos</p>
 <pre><code>0A 01 01 00 0A 12 1E 1B 0E 16 0F 1B 1C 0A</code></pre>
 <p>y en la fuente del cartucho (0x6197) esos índices son <code> 110 HURDLERS </code>. La errata está escrita en la ROM. La captura solo enseña el resultado.</p>
 <h2 id="el-reloj-esta-calculado-para-60-hz">El reloj está calculado para 60 Hz</h2>
