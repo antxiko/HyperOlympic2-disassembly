@@ -27,7 +27,8 @@ haberse colado algo.
 
 Dos guardianes lo vigilan, y los dos cazaron algo de verdad: `repasa_el_porte.py`
 encontro nueve direcciones citadas que aqui no existen y una cabecera de bloque
-que aun hablaba del martillo, y `cifras_portadas.py` encontro los dos comentarios
+que aun hablaba del martillo, que es prueba del hermano, y `cifras_portadas.py`
+encontro los dos comentarios
 de 0x4389 que decian "32 sprites" cuando aqui son 26.
 
 ## 3. Los bloques de datos NO se portaron
