@@ -223,3 +223,28 @@ los dos han cazado algo de verdad:
   comentarios de 0x4389, que decían «32 sprites» cuando aquí son 26.
 
 Está contado con detalle en [Empezar](EMPEZAR.md).
+
+## Código compartido con otros cartuchos de Konami
+
+Este desensamblado se ha comparado, instrucción por instrucción, con
+todos los demás de Konami de la serie. Cuenta un bloque cuando las
+mismas instrucciones, al menos seis desde una etiqueta hasta su `ret`
+o su salto sin condición, están en los dos cartuchos; las direcciones
+no se miran, porque cambian de un cartucho a otro. De los otros 57,
+**29** tienen al menos un bloque en común con este; estos son los
+que más comparten:
+
+| Cartucho | Bloques | Instrucciones | Por ejemplo (aquí = allí) |
+|---|---:|---:|---|
+| [Hyper Olympic 1](https://antxiko.github.io/HyperOlympic1-disassembly/es/) | 124 | 2.194 | `SUBE_LOS_PATRONES` (0x7F9B) |
+| [Konami's Tennis](https://antxiko.github.io/KonamisTennis-disassembly/es/) | 22 | 312 | `COPIA_VRAM_A_VRAM` (0x4C00) = `replica_vram` |
+| [Konami's Golf](https://antxiko.github.io/KonamisGolf-disassembly/es/) | 19 | 227 | `COPIA_VRAM_A_VRAM` (0x4C00) = `replica_los_tercios` |
+| [Konami's Baseball](https://antxiko.github.io/KonamisBaseball-disassembly/es/) | 18 | 209 | `COPIA_VRAM_A_VRAM` (0x4C00) = `replica_el_tercio_en_los_otros_dos` |
+| [Hyper Sports 1](https://antxiko.github.io/HyperSports1-disassembly/es/) | 9 | 105 | `MONTA_UN_CANAL` (0x6C3D) = `SUMA_BONUS_7BE3` |
+| [Konami’s Mahjong Dojo](https://antxiko.github.io/KonamisMahjongDojo-disassembly/es/) | 5 | 122 | `NOTA_DE_UN_BYTE` (0x6DE6) = `lee_una_nota_de_musica` |
+| [Road Fighter](https://antxiko.github.io/RoadFighter-disassembly/es/) | 5 | 52 | `TOCA_LA_NOTA_DE_UN_BYTE` (0x6E36) |
+| [Yie Ar Kung-Fu](https://antxiko.github.io/YieArKungFu-disassembly/es/) | 5 | 40 | `ADELANTA_LA_CAIDA` (0x6DD2) = `apaga_poco_a_poco_si_no` |
+
+La matriz entera, los 58 cartuchos entre sí, está en
+[Las rutinas](https://antxiko.github.io/MSX-disassembly-database/es/LAS-RUTINAS.html) de la base de datos de la
+serie, con el método y el programa que la mide.

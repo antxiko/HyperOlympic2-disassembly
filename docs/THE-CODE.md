@@ -227,3 +227,28 @@ both have caught something real:
   two comments at 0x4389, which said "32 sprites" when here they are 26.
 
 It is written up in detail in [Getting started](GETTING-STARTED.md).
+
+## Code shared with other Konami cartridges
+
+This disassembly has been compared, instruction by instruction, with
+every other Konami one in the series. A block counts when the same
+instructions, at least six of them from a label to its `ret` or its
+unconditional jump, are in both cartridges; the addresses are left
+aside, because they change from one cartridge to the next. Of the
+other 57, **29** have at least one block in common with this one;
+these are the ones that share the most:
+
+| Cartridge | Blocks | Instructions | For example (here = there) |
+|---|---:|---:|---|
+| [Hyper Olympic 1](https://antxiko.github.io/HyperOlympic1-disassembly/) | 124 | 2,194 | `SUBE_LOS_PATRONES` (0x7F9B) |
+| [Konami's Tennis](https://antxiko.github.io/KonamisTennis-disassembly/) | 22 | 312 | `COPIA_VRAM_A_VRAM` (0x4C00) = `replica_vram` |
+| [Konami's Golf](https://antxiko.github.io/KonamisGolf-disassembly/) | 19 | 227 | `COPIA_VRAM_A_VRAM` (0x4C00) = `replica_los_tercios` |
+| [Konami's Baseball](https://antxiko.github.io/KonamisBaseball-disassembly/) | 18 | 209 | `COPIA_VRAM_A_VRAM` (0x4C00) = `replica_el_tercio_en_los_otros_dos` |
+| [Hyper Sports 1](https://antxiko.github.io/HyperSports1-disassembly/) | 9 | 105 | `MONTA_UN_CANAL` (0x6C3D) = `SUMA_BONUS_7BE3` |
+| [Konami’s Mahjong Dojo](https://antxiko.github.io/KonamisMahjongDojo-disassembly/) | 5 | 122 | `NOTA_DE_UN_BYTE` (0x6DE6) = `lee_una_nota_de_musica` |
+| [Road Fighter](https://antxiko.github.io/RoadFighter-disassembly/) | 5 | 52 | `TOCA_LA_NOTA_DE_UN_BYTE` (0x6E36) |
+| [Yie Ar Kung-Fu](https://antxiko.github.io/YieArKungFu-disassembly/) | 5 | 40 | `ADELANTA_LA_CAIDA` (0x6DD2) = `apaga_poco_a_poco_si_no` |
+
+The whole matrix, the 58 cartridges against each other, is on
+[The routines](https://antxiko.github.io/MSX-disassembly-database/THE-ROUTINES.html) in the series database, along
+with the method and the program that measures it.
